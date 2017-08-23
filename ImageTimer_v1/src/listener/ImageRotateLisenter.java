@@ -6,7 +6,7 @@ import java.awt.event.MouseWheelEvent;
 
 import ui.ATP;
 
-public class ImageDraggeListener extends MouseAdapter{
+public class ImageRotateLisenter extends MouseAdapter{
 	private int fx;
 	private int fy;
 	@Override
@@ -23,7 +23,6 @@ public class ImageDraggeListener extends MouseAdapter{
 		super.mousePressed(e);
 		fx=e.getX();
 		fy=e.getY();
-		ATP.transfomController.toHandMouse();
 	}
 	@Override
 	public void mouseReleased(MouseEvent e) {
@@ -33,7 +32,6 @@ public class ImageDraggeListener extends MouseAdapter{
 		ATP.moveX = tx-fx;
 		ATP.moveY = ty-fy;
 		ATP.transfomController.moveImage();
-		ATP.transfomController.initMouse();
 	}
 	
 	@Override

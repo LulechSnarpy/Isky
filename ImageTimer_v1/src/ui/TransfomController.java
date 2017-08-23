@@ -110,6 +110,7 @@ public class TransfomController {
 	
 	public void initTimeShow(){
 		this.timeShow.setText(fomateTime());
+		TopMenu.timeShower.setText(fomateTime());
 	}
 	
 	public void toHandMouse(){
