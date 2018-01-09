@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-16 0:05:22 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.lulech.pojo.Teachers" table="teachers" catalog="chinatutors" optimistic-lock="version">
+        <id name="teaId" type="string">
+            <column name="tea_id" length="20" />
+            <generator class="assigned" />
+        </id>
+        <property name="cnName" type="string">
+            <column name="cn_name" length="20" not-null="true" />
+        </property>
+        <property name="enName" type="string">
+            <column name="en_name" length="20" not-null="true" />
+        </property>
+        <property name="profilePath" type="string">
+            <column name="profile_path" length="50" />
+        </property>
+        <property name="tpassword" type="string">
+            <column name="tpassword" length="20" not-null="true" />
+        </property>
+        <set name="classeses" table="classes" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tea_id" length="20" />
+            </key>
+            <one-to-many class="com.lulech.pojo.Classes" />
+        </set>
+    </class>
+</hibernate-mapping>

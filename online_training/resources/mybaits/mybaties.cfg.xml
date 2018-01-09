@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 对所有实体类创建别名,默认实体类名的首字母小写 不用使用*通位符 -->
+	<typeAliases>
+		<package name="com.qdu"/>
+	</typeAliases>
+</configuration>

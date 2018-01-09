@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-16 0:05:22 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.lulech.pojo.Exams" table="exams" catalog="chinatutors" optimistic-lock="version">
+        <id name="ECode" type="string">
+            <column name="e_code" length="20" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="chapters" class="com.lulech.pojo.Chapters" fetch="select">
+            <column name="chapter_id" length="20" />
+        </many-to-one>
+        <property name="filepath" type="string">
+            <column name="filepath" length="50" />
+        </property>
+        <property name="ETime" type="java.lang.Integer">
+            <column name="e_time" />
+        </property>
+        <set name="scoreses" table="scores" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="e_code" length="20" />
+            </key>
+            <one-to-many class="com.lulech.pojo.Scores" />
+        </set>
+    </class>
+</hibernate-mapping>

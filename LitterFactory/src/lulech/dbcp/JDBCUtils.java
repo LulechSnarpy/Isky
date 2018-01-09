@@ -12,7 +12,9 @@ import javax.sql.DataSource;
 import org.apache.commons.dbcp.BasicDataSource;
 
 import lulech.jdbc.JDBCUtilsConfig;
-
+/**
+ * @author lulech
+ * */
 public class JDBCUtils {
 	private static BasicDataSource dataSource = new BasicDataSource();
 	private static String driverClass;
@@ -23,6 +25,7 @@ public class JDBCUtils {
 	private static String maxActive;
 	private static String maxIdle;
 	private static String minIdle;
+	
 	
 	static{
 		//Êý¾Ý¿â
@@ -36,6 +39,13 @@ public class JDBCUtils {
 		dataSource.setMinIdle(Integer.parseInt(minIdle));
 	}
 	
+	/**
+	 * read config file into class
+	 * @author lulech
+	 * @version 0.1
+	 * @return void
+	 * @exception FileNotFoundException,IOException,SQLException
+	 * */
 	private static void readConfig() throws FileNotFoundException, IOException, SQLException {
 		InputStream in = JDBCUtilsConfig.class.getClassLoader().getResourceAsStream("database.properties");
 		Properties properties = new Properties();

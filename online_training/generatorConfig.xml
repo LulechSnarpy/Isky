@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  <classPathEntry location="C:\Users\19950910\Desktop\lib\mysql.jar" />
+
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://localhost:3309/project"
+        userId="root"
+        password="wasd1234">
+    </jdbcConnection>
+
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+
+    <javaModelGenerator targetPackage="com.qdu.bean" targetProject="online_training\src">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="com.qdu.mapper"  targetProject="online_training\src">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+
+	
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.qdu.mapper"  targetProject="online_training\src">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+	<!-- 学生表 -->
+    <table schema="project" tableName="student" domainObjectName="Student" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="sid" sqlStatement="select replace(UUID(),'-','')" identity="false" />
+    </table>
+    
+    <!-- 讲师表 -->
+    <table schema="project" tableName="teacher" domainObjectName="Teacher" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="tid" sqlStatement="select replace(UUID(),'-','')" identity="false" />
+    </table>
+    
+    
+    <!-- 课程表 -->
+     <table schema="project" tableName="course" domainObjectName="Course" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="cid" sqlStatement="select replace(UUID(),'-','')" identity="false" />
+    </table>
+    
+    <!-- 考试表 -->
+     <table schema="project" tableName="exam" domainObjectName="Exam" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="eid" sqlStatement="select replace(UUID(),'-','')" identity="false" />
+    </table>
+    
+    <!-- 班级表 -->
+     <table schema="project" tableName="class" domainObjectName="Class" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="csid" sqlStatement="select replace(UUID(),'-','')" identity="false" />
+    </table>
+    
+    <!-- 学生和班级表 -->
+     <table schema="project" tableName="s_ctable" domainObjectName="SourseAndCourse" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="s_cid" sqlStatement="select replace(UUID(),'-','')" identity="false" />
+    </table>
+    
+    <!-- 学生和章节表 -->
+     <table schema="project" tableName="s_utable" domainObjectName="SourseAndUnit" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="s_uid" sqlStatement="select replace(UUID(),'-','')" identity="false" />
+    </table>
+    
+    <!-- 章节表 -->
+    <table schema="project" tableName="unit" domainObjectName="Unit" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="uid" sqlStatement="select replace(UUID(),'-','')" identity="false" />
+    </table>
+
+  </context>
+</generatorConfiguration>

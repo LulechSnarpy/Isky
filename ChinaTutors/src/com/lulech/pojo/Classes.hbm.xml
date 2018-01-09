@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-16 0:05:22 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.lulech.pojo.Classes" table="classes" catalog="chinatutors" optimistic-lock="version">
+        <id name="classId" type="string">
+            <column name="class_id" length="20" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="courses" class="com.lulech.pojo.Courses" fetch="select">
+            <column name="course_id" length="20" />
+        </many-to-one>
+        <many-to-one name="teachers" class="com.lulech.pojo.Teachers" fetch="select">
+            <column name="tea_id" length="20" />
+        </many-to-one>
+        <property name="className" type="string">
+            <column name="class_name" length="20" not-null="true" />
+        </property>
+        <set name="curriculaVariables" table="curricula_variable" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="class_id" length="20" />
+            </key>
+            <one-to-many class="com.lulech.pojo.CurriculaVariable" />
+        </set>
+    </class>
+</hibernate-mapping>

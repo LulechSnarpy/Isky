@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="ChinaTutors"/>
+  <table-filter match-name="scores"/>
+  <table-filter match-name="classes"/>
+  <table-filter match-name="curricula_variable"/>
+  <table-filter match-name="courses"/>
+  <table-filter match-name="teachers"/>
+  <table-filter match-name="students"/>
+  <table-filter match-name="chapters"/>
+  <table-filter match-name="exams"/>
+</hibernate-reverse-engineering>
